@@ -7,7 +7,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -31,6 +34,7 @@ public class Movie {
 	@NotBlank (message = "genre cannot be empty")
 	private @NonNull String genre;
 	
-	
+	@Min(value = 0, message = "must be between 0 to 10")
+	@Max(value = 10, message = "must be between 0 to 10")
 	private @NonNull Float rating;
 }
